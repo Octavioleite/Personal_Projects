@@ -5,6 +5,8 @@ const session = require('express-session');
 const db = require('./src/db');
 const homeRouter = require('./src/routes/homeRouter');
 const loginRouter = require('./src/routes/loginRouter');
+const pagesController = require('./src/routes/pagesRouter');
+
 
 const app = express();
 
@@ -18,11 +20,20 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false } 
 }));
+app.use(session({
+  secret: 'secreta',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } 
+}));
+
+
+
 app.use(express.static('public'));
 
 app.use('/', homeRouter);
 app.use('/', loginRouter);
-
+app.use('/', pagesController);
 
 db.sync()
   .then(() => {
