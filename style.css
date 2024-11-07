@@ -13,13 +13,14 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    min-height: 100vh; /* Garantir que a tela ocupe toda a altura */
 }
 
 /* Header */
 header {
     background-color: #4a90e2;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     width: 100%;
     max-width: 600px;
@@ -28,7 +29,8 @@ header {
 }
 
 header h1 {
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 /* Content Section */
@@ -59,16 +61,23 @@ header h1 {
 /* Buttons */
 button {
     margin-right: 10px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 button[type="button"]:hover {
     background-color: #007bff;
     border-color: #0056b3;
+    cursor: pointer;
 }
 
 button[type="reset"]:hover {
     background-color: #6c757d;
     border-color: #5a6268;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none; /* Remove o contorno padrão ao clicar */
 }
 
 /* Resultado */
@@ -76,6 +85,20 @@ button[type="reset"]:hover {
     font-size: 18px;
     font-weight: bold;
     margin-top: 20px;
+    text-align: center;
+}
+
+/* Resultado específico de positivo ou negativo */
+.resultado-text.green {
+    color: green;
+}
+
+.resultado-text.red {
+    color: red;
+}
+
+.resultado-text.orange {
+    color: orange;
 }
 
 /* Footer */
@@ -86,4 +109,21 @@ footer {
     text-align: center;
     width: 100%;
     max-width: 600px;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .content,
+    .form-section,
+    footer {
+        max-width: 100%;
+    }
 }
