@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutonomyNow</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AutonomyNow</h1>
+    </header>
+    
+    <section class="content">
+        <p>O consumo de álcool (etanol) e gasolina em veículos apresenta diferenças significativas devido às características químicas de cada combustível. O álcool tem uma menor densidade energética que a gasolina, o que significa que ele gera menos energia por litro queimado. Como resultado, um carro movido a álcool costuma ter um consumo maior em volume, ou seja, percorre menos quilômetros por litro do que um carro abastecido com gasolina.</p>
+    </section>
+    
+    <section class="form-section">
+        <form>
+            <div class="form-group">
+                <label for="gasolina">Preço da Gasolina</label>
+                <input type="number" class="form-control" id="gasolina" placeholder="Digite o preço da gasolina" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="alcool">Preço do Álcool</label>
+                <input type="number" class="form-control" id="alcool" placeholder="Digite o preço do álcool" step="0.01">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="Calc()">Calcular</button>
+            <button type="reset" class="btn btn-secondary" onclick="limparResultado()">Resetar</button>
+        </form>
+        <p id="resultado" class="resultado-text"></p> 
+    </section>
+
+    <footer>
+        <p>AutonomyNow © 2024</p>
+    </footer>
+
+    <script>
+        function Calc() {
+            const gasolina = parseFloat(document.getElementById('gasolina').value);
+            const alcool = parseFloat(document.getElementById('alcool').value);
+            if (!isNaN(gasolina) && !isNaN(alcool) && alcool !== 0) {
+                const resultado = gasolina / alcool;
+
+                const resultadoElement = document.getElementById('resultado');
+                if (resultado >= 0.70) {
+                    resultadoElement.innerText = "Está compensando abastecer com álcool, pois o custo-benefício está acima de 70%.";
+                    resultadoElement.style.color = "green";
+                } else {
+                    resultadoElement.innerText = "Não está compensando abastecer com álcool, pois o custo-benefício está abaixo de 70%.";
+                    resultadoElement.style.color = "red"; 
+                }
+            } else {
+                document.getElementById('resultado').innerText = "Por favor, insira valores válidos para ambos os campos.";
+                document.getElementById('resultado').style.color = "orange"; 
+            }
+        }
+
+        function limparResultado() {
+            document.getElementById('resultado').innerText = ""; 
+        }
+    </script>
+</body>
+</html>
