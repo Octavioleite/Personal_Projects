@@ -1,7 +1,0 @@
-1°  Ligo um interruptor e deixo a lâmpada ligada por cerca de 5 a 10 minutos.
-2°  Desligo a lâmpada e, em seguida, ligo outro interruptor.
-3°  Vou até a sala das lâmpadas e verifico duas condições: se a lâmpada está quente ou se ela está acesa.
-Conclusão:
-1°  Se a lâmpada na primeira sala estiver quente, ela corresponde ao primeiro interruptor.
-2°  Se a lâmpada estiver acesa, ela corresponde ao segundo interruptor.
-3°  Se a lâmpada estiver apagada e fria, ela corresponde ao terceiro interruptor.
